@@ -3,31 +3,93 @@ import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
+// frontend
+import js from "../../../assets/js.png";
+import react from "../../../assets/react.png";
+import html from "../../../assets/html.png";
+import css from "../../../assets/css.png";
+import tailwind from "../../../assets/tailwind.png";
+
+// backend
+import nodejs from "../../../assets/nodejs.png";
+import mongodb from "../../../assets/mongodb.png";
+import express from "../../../assets/express.png";
+import firebase from "../../../assets/firebase.png";
+import jwt from "../../../assets/jwt.png";
+import stripe from "../../../assets/stripe.png";
+
 const skillCategories = {
   Frontend: [
-    { name: "React", level: 95, icon: "⚛️" },
-    { name: "TypeScript", level: 90, icon: "🔷" },
-    { name: "Next.js", level: 88, icon: "▲" },
-    { name: "Tailwind CSS", level: 92, icon: "🎨" },
-    { name: "Framer Motion", level: 85, icon: "🌟" },
-    { name: "Vue.js", level: 75, icon: "💚" },
+    {
+      name: "React",
+      level: 80,
+      icon: <img src={react} alt="React Icon" className="w-6 h-6" />,
+    },
+    {
+      name: "JavaScript (ES6+)",
+      level: 75,
+      icon: <img src={js} alt="React Icon" className="w-6 h-6" />,
+    },
+    {
+      name: "HTML5",
+      level: 90,
+      icon: <img src={html} alt="React Icon" className="w-6 h-6" />,
+    },
+    {
+      name: "CSS3",
+      level: 85,
+      icon: <img src={css} alt="React Icon" className="w-6 h-6" />,
+    },
+    {
+      name: "Tailwind CSS",
+      level: 80,
+      icon: <img src={tailwind} alt="React Icon" className="w-6 h-6" />,
+    },
+    { name: "Responsive Design", level: 80, icon: "📱" },
   ],
+
   Backend: [
-    { name: "Node.js", level: 90, icon: "🟢" },
-    { name: "Express", level: 88, icon: "🚀" },
-    { name: "PostgreSQL", level: 82, icon: "🐘" },
-    { name: "MongoDB", level: 80, icon: "🍃" },
-    { name: "GraphQL", level: 75, icon: "📊" },
-    { name: "Redis", level: 70, icon: "🔴" },
+    {
+      name: "Node.js",
+      level: 80,
+      icon: <img src={nodejs} alt="React Icon" className="w-6 h-6" />,
+    },
+    {
+      name: "Express.js",
+      level: 78,
+      icon: <img src={express} alt="React Icon" className="w-6 h-6" />,
+    },
+    {
+      name: "MongoDB",
+      level: 75,
+      icon: <img src={mongodb} alt="React Icon" className="w-6 h-6" />,
+    },
+    {
+      name: "Firebase",
+      level: 70,
+      icon: <img src={firebase} alt="React Icon" className="w-6 h-6" />,
+    },
+    {
+      name: "JWT",
+      level: 68,
+      icon: <img src={jwt} alt="React Icon" className="w-6 h-6" />,
+    },
+    {
+      name: "Stripe",
+      level: 65,
+      icon: <img src={stripe} alt="React Icon" className="w-6 h-6" />,
+    },
   ],
-  Tools: [
-    { name: "Git", level: 93, icon: "📚" },
-    { name: "Docker", level: 78, icon: "🐳" },
-    { name: "AWS", level: 72, icon: "☁️" },
-    { name: "Figma", level: 85, icon: "🎯" },
-    { name: "Jest", level: 80, icon: "🃏" },
-    { name: "Webpack", level: 75, icon: "📦" },
-  ],
+
+Tools: [
+  { name: "Git & GitHub", level: 85, icon: "🔧" },
+  { name: "VS Code", level: 90, icon: "🖊️" },
+  { name: "Postman", level: 80, icon: "📬" },
+  { name: "Figma", level: 70, icon: "🎯" },
+  { name: "Firebase Console", level: 75, icon: "🔥" },
+  { name: "Netlify / Vercel", level: 78, icon: "🚀" },
+],
+
 };
 
 export function Skills() {
@@ -106,7 +168,7 @@ export function Skills() {
                 variant={activeCategory === category ? "default" : "ghost"}
                 className={`relative ${
                   activeCategory === category
-                    ? "bg-white dark:bg-gray-700 shadow-sm"
+                    ? "bg-gray-700 dark:bg-gray-700 shadow-sm"
                     : ""
                 }`}
                 onClick={() => setActiveCategory(category)}

@@ -147,7 +147,7 @@ export function Hero() {
 
           {/* Scroll indicator */}
           <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            className="absolute  flex right-6 -bottom-20 md:-right-56 md:-bottom-36"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8 }}
@@ -158,8 +158,8 @@ export function Hero() {
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <span className="text-sm mb-2">Scroll down</span>
-              <ChevronDown className="h-6 w-6" />
+              <span className="text-xl md:text-3xl mb-2">Scroll down</span>
+              <ChevronDown className="h-8 w-8" />
             </motion.button>
           </motion.div>
         </div>

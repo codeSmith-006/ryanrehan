@@ -4,13 +4,19 @@ import Tilt from "react-parallax-tilt";
 import { Code, Coffee, Globe, Heart } from "lucide-react";
 
 const stats = [
-  { label: "Years Experience", value: "5+", icon: Code },
-  { label: "Projects Completed", value: "50+", icon: Globe },
-  { label: "Cups of Coffee", value: "1000+", icon: Coffee },
-  { label: "Happy Clients", value: "25+", icon: Heart },
+  { label: "Months Learning", value: "8+", icon: Code },
+  { label: "Projects Built", value: "10+", icon: Globe },
+  { label: "Cups of Coffee", value: "200+", icon: Coffee },
+  { label: "Skills Acquired", value: "10+", icon: Heart },
 ];
 
+
 const interests = [
+  "Backend Development",
+  "Strong Logic",
+  "Problem Solving",
+  "Scalable Software",
+  "Microservices",
   "Web Development",
   "Mobile Apps",
   "UI/UX Design",
@@ -69,7 +75,7 @@ export function About() {
                 <div className="relative bg-white dark:bg-gray-900 rounded-2xl p-2 transform -rotate-6 hover:rotate-0 transition-transform duration-300">
                   <img
                     src="https://i.ibb.co/0yjjX09q/IMG-20250410-112426-950.jpg"
-                    alt="Alex Johnson"
+                    alt="Ryan Rehan"
                     className="w-full h-96 object-cover object-top rounded-xl"
                   />
                 </div>
@@ -91,23 +97,23 @@ export function About() {
 
             <motion.div variants={itemVariants} className="space-y-4 mb-8">
               <p className="text-lg text-gray-600 dark:text-gray-300">
-                I'm a passionate full-stack developer with over 5 years of
-                experience creating digital solutions that make a difference. My
-                journey started with a simple "Hello World" and has evolved into
-                building complex, scalable applications.
+                I'm an enthusiastic full-stack developer learning to build
+                strong backend logic and scalable software. My journey began
+                with programming basics and has grown into mastering modern web
+                development technologies.
               </p>
 
               <p className="text-lg text-gray-600 dark:text-gray-300">
-                I specialize in React, Node.js, and modern web technologies.
-                When I'm not coding, you'll find me exploring new technologies,
-                contributing to open source projects, or capturing moments
-                through photography.
+                I focus on backend development, microservices, and problem
+                solving with Node.js and MongoDB, while also exploring React for
+                frontend. Outside coding, I enjoy UI/UX design, open source
+                contributions, machine learning, and photography.
               </p>
 
               <p className="text-lg text-gray-600 dark:text-gray-300">
-                I believe in writing clean, maintainable code and creating user
-                experiences that are both beautiful and functional. Let's work
-                together to bring your ideas to life!
+                I strive to write clean, efficient code and build software that
+                solves real-world problems. I’m eager to collaborate and create
+                innovative solutions together!
               </p>
             </motion.div>
 
