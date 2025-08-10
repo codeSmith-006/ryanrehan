@@ -12,7 +12,7 @@ export default function Index() {
   return (
     <>
       <Helmet>
-        <title>Alex Johnson - Full Stack Developer Portfolio</title>
+        <title>Ryan Rehan - Full Stack Developer</title>
         <meta
           name="description"
           content="Full Stack Developer specializing in React, Node.js, and modern web technologies. Creating beautiful, scalable web applications."
@@ -21,10 +21,10 @@ export default function Index() {
           name="keywords"
           content="full stack developer, react developer, web developer, portfolio, javascript, typescript, node.js"
         />
-        <meta name="author" content="Alex Johnson" />
+        <meta name="author" content="Ryan Rehan" />
         <meta
           property="og:title"
-          content="Alex Johnson - Full Stack Developer"
+          content="Ryan Rehan - Full Stack Developer"
         />
         <meta
           property="og:description"
@@ -57,7 +57,7 @@ export default function Index() {
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="text-center md:text-left mb-4 md:mb-0">
                 <p className="text-gray-300">
-                  © 2024 Alex Johnson. All rights reserved.
+                  © 2024 Ryan Rehan. All rights reserved.
                 </p>
                 <p className="text-gray-400 text-sm">
                   Built with React, TypeScript, and Tailwind CSS
