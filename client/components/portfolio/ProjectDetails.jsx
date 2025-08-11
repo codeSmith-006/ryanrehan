@@ -10,6 +10,13 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+
+// Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default function ProjectDetails() {
   const location = useLocation();
@@ -50,12 +57,29 @@ export default function ProjectDetails() {
           transition={{ duration: 0.6 }}
           className="relative h-64 md:h-80 lg:h-96 rounded-2xl overflow-hidden mb-8"
         >
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          <Swiper
+            modules={[Navigation, Pagination, Autoplay]} // ✅ Add Autoplay here
+            // navigation
+            pagination={{ clickable: true }}
+            loop
+            autoplay={{
+              delay: 3000, // 3 seconds
+              disableOnInteraction: false, // keeps autoplay running after manual swipe
+            }}
+            className="w-full h-full"
+          >
+            {project.image.map((img, idx) => (
+              <SwiperSlide key={idx}>
+                <img
+                  src={img}
+                  alt={`${project.title} - ${idx + 1}`}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
           <div className="absolute bottom-6 left-6 text-white">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -158,7 +182,7 @@ export default function ProjectDetails() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg sticky top-24"
+              className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg top-24"
             >
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                 <Zap className="h-5 w-5 mr-2 text-purple-600" />

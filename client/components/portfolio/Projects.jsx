@@ -10,91 +10,125 @@ import {
   Zap,
   TrendingUp,
 } from "lucide-react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import ProjectDetails from "./ProjectDetails";
 
 const projects = [
+  // feature project one
   {
     id: 1,
-    title: "E-commerce Platform",
+    title: "Medical Camp Management System (MCMS)",
     description:
-      "A full-stack e-commerce solution with React, Node.js, and PostgreSQL. Features include user authentication, payment processing, and admin dashboard.",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center",
+      "Developed a MERN stack platform to streamline the organization and participation of medical camps. The system allows organizers to create and manage camps, track participant registrations, confirm payments, and view feedback. Participants can browse available camps, register through a secure modal form, complete payments via Stripe, and access personalized dashboards with analytics. The app is responsive across devices, uses JWT for authentication, and leverages TanStack Query for efficient data fetching. A key focus was delivering a smooth user experience with real-time participant counts, search/sort functionality, and clear role-based dashboards.",
+    image: [
+      "https://i.ibb.co.com/mCmKrXMN/image.png",
+      "https://i.ibb.co.com/d0pcP2cP/image.png",
+      "https://i.ibb.co.com/zTd79cCX/Screenshot-From-2025-08-11-18-33-02.png",
+      "https://i.ibb.co.com/sdWc6Wds/Screenshot-From-2025-08-11-18-32-54.png",
+    ],
     tech: [
       "React",
       "Node.js",
-      "PostgreSQL",
+      "MongoDB",
+      "Express",
       "Stripe",
       "Tailwind CSS",
-      "Redux",
+      "TanStack Query",
       "JWT",
     ],
-    github: "https://github.com/example/ecommerce-platform",
-    live: "https://ecommerce-demo.vercel.app",
+    github: "https://github.com/codeSmith-006/medicamp-client",
+    live: "https://carecamp-06.web.app/",
     featured: true,
     challenges: [
-      "Implementing secure payment processing with Stripe",
-      "Optimizing database queries for large product catalogs",
-      "Managing complex state with Redux for cart and user sessions",
+      "Implementing secure Stripe payment integration with proper status updates for both organizers and participants.",
+      "Designing a database structure to handle multiple user roles, camp data, registrations, and feedback efficiently.",
+      "Ensuring participants remain logged in on private routes even after page reloads using JWT token persistence.",
+      "Managing multiple dashboard routes with role-based access control and maintaining a responsive design for all devices.",
     ],
     improvements: [
-      "Add AI-powered product recommendations",
-      "Implement real-time inventory tracking",
-      "Add progressive web app (PWA) features",
+      "Add AI-powered health tips and camp recommendations based on user profile and past participation.",
+      "Enable real-time notifications for organizers when new participants register or payments are confirmed.",
+      "Integrate volunteer and appointment scheduling features to expand the scope beyond current camp management.",
     ],
   },
+
+  // feature project two
   {
     id: 2,
-    title: "Task Management App",
+    title: "LostFinder - Lost & Found Platform",
     description:
-      "A collaborative task management application with real-time updates, drag & drop functionality, and team collaboration features.",
-    image:
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop&crop=center",
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "Prisma",
-      "Socket.io",
-      "Framer Motion",
-      "TailwindCSS",
+      "Developed a full-stack Lost & Found management platform that connects people who have lost items with those who have found them. Built with a focus on smooth user experience, secure authentication, and organized data handling. Users can post lost or found items, view detailed item pages, update their listings, and mark items as recovered through a dedicated workflow. The system includes private routes for managing personal items, JWT authentication for security, and dynamic search to filter posts by title or location. A responsive design ensures the site works seamlessly on mobile, tablet, and desktop devices.",
+    image: [
+      "https://i.ibb.co.com/zhcxkkgY/Screenshot-From-2025-08-11-18-53-49.png",
+      "https://i.ibb.co.com/MDVkjBQk/Screenshot-From-2025-08-11-18-54-18.png",
+      "https://i.ibb.co.com/1tcgPwLc/Screenshot-From-2025-08-11-18-54-04.png",
+      "https://i.ibb.co.com/rfkxqtLr/Screenshot-From-2025-08-11-18-54-32.png",
+      "https://i.ibb.co.com/d47Wz21q/Screenshot-From-2025-08-11-18-54-43.png",
     ],
-    github: "https://github.com/example/task-manager",
-    live: "https://taskmanager-pro.vercel.app",
+    tech: [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Express.js",
+      "Firebase Auth",
+      "JWT",
+      "Tailwind CSS",
+      "Framer Motion",
+    ],
+    github: "https://github.com/codeSmith-006/Lostfinder-Client",
+    live: "https://lostfinder-58605.web.app/",
     featured: true,
     challenges: [
-      "Implementing real-time collaboration with Socket.io",
-      "Creating smooth drag & drop interactions",
-      "Managing complex TypeScript interfaces for team permissions",
+      "Implementing secure JWT-based authentication to ensure private route protection without losing login state on reload.",
+      "Designing an intuitive UI/UX for item posting, editing, and recovery workflows while keeping forms pre-filled with logged-in user data.",
+      "Managing and displaying multiple data states (active, recovered) across different dashboard views with responsive layouts.",
+      "Integrating search and filtering functionality for large datasets without degrading performance.",
     ],
     improvements: [
-      "Add time tracking and reporting features",
-      "Implement AI-powered task prioritization",
-      "Add mobile app with React Native",
+      "Add real-time notifications when a user’s lost item is marked as recovered by another user.",
+      "Integrate image upload functionality instead of using only image URLs.",
+      "Add location-based search and mapping features using Google Maps API.",
     ],
   },
+
+  // feature project three
   {
     id: 3,
-    title: "AI-Powered Analytics Dashboard",
+    title: "Gardening Community & Resource Hub",
     description:
-      "Interactive dashboard with AI-driven insights, data visualization, and predictive analytics for business intelligence.",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=center",
-    tech: ["React", "Python", "TensorFlow", "D3.js", "FastAPI", "PostgreSQL"],
-    github: "https://github.com/example/analytics-dashboard",
-    live: "https://analytics-pro.vercel.app",
+      "Built a full-stack platform for gardening enthusiasts to share tips, connect with local gardeners, and participate in gardening events. The app features secure authentication with Firebase, dynamic user profiles, a rich tip-sharing system with categories and difficulty filtering, and event sliders. Private routes allow users to share, update, and manage their gardening tips. The UI is fully responsive and includes dark/light mode toggle for user preference.",
+    image: [
+      "https://i.ibb.co.com/84KcWQcd/Screenshot-From-2025-08-11-19-01-36.png",
+      "https://i.ibb.co.com/fd9wdgJb/Screenshot-From-2025-08-11-19-02-08.png",
+      "https://i.ibb.co.com/3y2fDjL2/Screenshot-From-2025-08-11-19-02-40.png",
+      "https://i.ibb.co.com/pv1TMqMp/Screenshot-From-2025-08-11-19-02-45.png",
+      "https://i.ibb.co.com/wr09gRJ9/Screenshot-From-2025-08-11-19-02-59.png",
+    ],
+    tech: [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Express",
+      "Firebase Auth",
+      "Tailwind CSS",
+      "Framer Motion",
+    ],
+    github: "https://github.com/codeSmith-006/Florafy-Client",
+    live: "https://assignment-604fb.web.app/",
     featured: true,
     challenges: [
-      "Integrating TensorFlow.js for client-side predictions",
-      "Creating complex D3.js visualizations",
-      "Optimizing API performance for large datasets",
+      "Implementing a smooth and responsive slider showcasing gardening events.",
+      "Creating a robust filtering system for browsing tips by difficulty level.",
+      "Managing secure private routes for tip sharing, updating, and user profiles.",
+      "Ensuring dark and light theme toggle works seamlessly across all pages.",
     ],
     improvements: [
-      "Add more ML models for different data types",
-      "Implement real-time data streaming",
-      "Add custom dashboard builder",
+      "Add a feature to like and comment on shared gardening tips.",
+      "Integrate location-based gardener profiles and event suggestions.",
+      "Implement calendar integration for gardening event reminders.",
     ],
   },
+
   {
     id: 4,
     title: "Social Media Platform",
@@ -314,29 +348,6 @@ const ProjectsGrid = ({ projects, onViewDetails }) => {
         ))}
       </div>
 
-      {/* Other Projects */}
-      {otherProjects.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-            More Projects
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {otherProjects.map((project, index) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                onViewDetails={onViewDetails}
-                index={index + featuredProjects.length}
-              />
-            ))}
-          </div>
-        </motion.div>
-      )}
-
       {/* View All Projects Button */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -344,20 +355,26 @@ const ProjectsGrid = ({ projects, onViewDetails }) => {
         transition={{ duration: 0.8, delay: 0.8 }}
         className="text-center mt-12 md:mt-16"
       >
-        <motion.button
-          whileHover={{ scale: 1.05, y: -2 }}
-          whileTap={{ scale: 0.95 }}
-          className="inline-flex items-center px-8 py-4 text-lg font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-all shadow-lg hover:shadow-xl group"
+        <Link
+          to="https://github.com/codeSmith-006"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          View All Projects
-          <motion.span
-            className="ml-2"
-            animate={{ x: [0, 5, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
+          <motion.button
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center px-8 py-4 text-lg font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-all shadow-lg hover:shadow-xl group"
           >
-            →
-          </motion.span>
-        </motion.button>
+            View All Projects
+            <motion.span
+              className="ml-2"
+              animate={{ x: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              →
+            </motion.span>
+          </motion.button>
+        </Link>
       </motion.div>
     </div>
   );
