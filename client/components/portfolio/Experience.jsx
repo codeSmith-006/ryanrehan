@@ -155,9 +155,7 @@ export function Experience() {
                   >
                     <div className="flex items-start justify-between mb-4">
                       <div
-                        className={`${
-                          index % 2 === 0 ? "md:text-right" : ""
-                        }`}
+                        className={`${index % 2 === 0 ? "md:text-right" : ""}`}
                       >
                         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
                           {exp.title}
@@ -207,41 +205,6 @@ export function Experience() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
-
-        {/* Resume CTA */}
-        <motion.div
-          variants={itemVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="text-center mt-16"
-        >
-          <motion.div
-            className="inline-block"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <a
-              href="/resume.pdf"
-              download
-              className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
-              Download Full Resume
-            </a>
-          </motion.div>
         </motion.div>
       </div>
     </section>

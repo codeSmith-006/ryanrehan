@@ -3,7 +3,7 @@ import { ChevronDown, Download, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 
-const words = ["Developer", "Designer", "Creator", "Innovator"];
+const words = ["Fullstack Developer", "Designer"];
 
 export function Hero() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -96,8 +96,10 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              I create beautiful, responsive web applications with modern
-              technologies. Let's build something amazing together.
+              Fresher skilled in React, Node.js, MongoDB, and Firebase, focused
+              on building responsive web applications. Open to remote
+              international internships to contribute skills and gain teamwork
+              experience.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -128,20 +130,23 @@ export function Hero() {
                 />
               </Button>
 
-              <Button
-                size="lg"
-                variant="outline"
-                className="group px-8 py-3 text-lg border-2 hover:bg-gray-50 dark:hover:bg-gray-800"
-              >
-                <motion.span
-                  className="flex items-center gap-2"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+              {/* download resume hero button */}
+              <a href="/resume.pdf" download>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="group px-8 py-4 text-lg border-2 hover:bg-gray-50 dark:hover:bg-gray-800"
                 >
-                  Download Resume
-                  <Download className="h-4 w-4 group-hover:animate-bounce" />
-                </motion.span>
-              </Button>
+                  <motion.span
+                    className="flex items-center gap-2"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Download Resume
+                    <Download className="h-4 w-4 group-hover:animate-bounce" />
+                  </motion.span>
+                </Button>
+              </a>
             </motion.div>
           </motion.div>
 

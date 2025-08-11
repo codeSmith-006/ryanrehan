@@ -22,10 +22,7 @@ export default function Index() {
           content="full stack developer, react developer, web developer, portfolio, javascript, typescript, node.js"
         />
         <meta name="author" content="Ryan Rehan" />
-        <meta
-          property="og:title"
-          content="Ryan Rehan - Full Stack Developer"
-        />
+        <meta property="og:title" content="Ryan Rehan - Full Stack Developer" />
         <meta
           property="og:description"
           content="Full Stack Developer creating amazing web experiences"

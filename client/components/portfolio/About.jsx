@@ -10,7 +10,6 @@ const stats = [
   { label: "Skills Acquired", value: "10+", icon: Heart },
 ];
 
-
 const interests = [
   "Backend Development",
   "Strong Logic",
@@ -74,7 +73,7 @@ export function About() {
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl transform rotate-6"></div>
                 <div className="relative bg-white dark:bg-gray-900 rounded-2xl p-2 transform -rotate-6 hover:rotate-0 transition-transform duration-300">
                   <img
-                    src="https://i.ibb.co/0yjjX09q/IMG-20250410-112426-950.jpg"
+                    src="https://i.ibb.co.com/0jjL78R9/Rehan.jpg"
                     alt="Ryan Rehan"
                     className="w-full h-96 object-cover object-top rounded-xl"
                   />
@@ -97,23 +96,29 @@ export function About() {
 
             <motion.div variants={itemVariants} className="space-y-4 mb-8">
               <p className="text-lg text-gray-600 dark:text-gray-300">
-                I'm an enthusiastic full-stack developer learning to build
-                strong backend logic and scalable software. My journey began
-                with programming basics and has grown into mastering modern web
-                development technologies.
+                I began my programming journey in 2019, learning Python entirely
+                on my mobile through the Pydroid app. Without a laptop at the
+                time, I had to pause due to academic pressures. In 2024, while
+                starting my BSc in Computer Science and Engineering, I committed
+                fully to web development, diving into the MERN stack through
+                Programming Hero and building several full-stack projects.
               </p>
 
               <p className="text-lg text-gray-600 dark:text-gray-300">
-                I focus on backend development, microservices, and problem
-                solving with Node.js and MongoDB, while also exploring React for
-                frontend. Outside coding, I enjoy UI/UX design, open source
-                contributions, machine learning, and photography.
+                I’m passionate about backend systems, frontend logic, and
+                especially debugging and problem-solving. I focus on writing
+                clean, structured, and well-commented code that’s easy to read
+                and maintain. Facing and resolving challenging errors has
+                strengthened my foundation and built patience and resilience.
+                While I currently work independently, I’m eager to gain team
+                collaboration experience to enhance my skills and adaptability.
               </p>
 
               <p className="text-lg text-gray-600 dark:text-gray-300">
-                I strive to write clean, efficient code and build software that
-                solves real-world problems. I’m eager to collaborate and create
-                innovative solutions together!
+                Beyond coding, I enjoy photography, music, and cooking. I’m
+                naturally curious, a deep learner, and adaptable — whether it’s
+                handling pressure, adjusting to a new codebase, or mastering new
+                skills as needed.
               </p>
             </motion.div>
 
@@ -137,44 +142,6 @@ export function About() {
               </div>
             </motion.div>
           </motion.div>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16"
-        >
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <motion.div
-                key={stat.label}
-                variants={itemVariants}
-                className="text-center"
-              >
-                <motion.div
-                  className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-4"
-                  whileHover={{ scale: 1.1, rotate: 360 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Icon className="h-8 w-8 text-white" />
-                </motion.div>
-                <motion.div
-                  className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white"
-                  initial={{ opacity: 0 }}
-                  animate={inView ? { opacity: 1 } : {}}
-                  transition={{ delay: 1 + index * 0.1 }}
-                >
-                  {stat.value}
-                </motion.div>
-                <div className="text-gray-600 dark:text-gray-300 mt-1">
-                  {stat.label}
-                </div>
-              </motion.div>
-            );
-          })}
         </motion.div>
       </div>
     </section>
