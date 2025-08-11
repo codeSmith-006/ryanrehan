@@ -17,23 +17,25 @@ import {
   Send,
 } from "lucide-react";
 
+import whatsapp from "../../../assets/whatsapp.png";
+
 const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "alex@example.com",
-    href: "mailto:alex@example.com",
+    value: "ryanrehan.pc@gmail.com",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=ryanrehan.pc@gmail.com",
   },
   {
     icon: Phone,
-    label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    label: "Whatsapp",
+    value: "+8801722414475",
+    href: "https://wa.me/8801722414475",
   },
   {
     icon: MapPin,
-    label: "Location",
-    value: "San Francisco, CA",
+    label: "From",
+    value: "Dhaka, Bangladesh",
     href: "#",
   },
 ];
@@ -42,25 +44,19 @@ const socialLinks = [
   {
     icon: Github,
     label: "GitHub",
-    href: "https://github.com",
+    href: "https://github.com/codeSmith-006",
     color: "hover:text-gray-900 dark:hover:text-white",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/in/ryanrehan06/",
     color: "hover:text-blue-600",
-  },
-  {
-    icon: Twitter,
-    label: "Twitter",
-    href: "https://twitter.com",
-    color: "hover:text-blue-400",
   },
   {
     icon: Mail,
     label: "Email",
-    href: "mailto:alex@example.com",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=ryanrehan.pc@gmail.com",
     color: "hover:text-red-500",
   },
 ];

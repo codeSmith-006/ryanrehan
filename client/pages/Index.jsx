@@ -7,6 +7,7 @@ import { Skills } from "@/components/portfolio/Skills";
 import { Projects } from "@/components/portfolio/Projects";
 import { Experience } from "@/components/portfolio/Experience";
 import { Contact } from "@/components/portfolio/Contact";
+import { Education } from "../components/portfolio/Education";
 
 export default function Index() {
   return (
@@ -44,7 +45,8 @@ export default function Index() {
           <About />
           <Skills />
           <Projects />
-          <Experience />
+          <Education></Education>
+          {/* <Experience /> */}
           <Contact />
         </motion.main>
 
@@ -54,10 +56,10 @@ export default function Index() {
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="text-center md:text-left mb-4 md:mb-0">
                 <p className="text-gray-300">
-                  © 2024 Ryan Rehan. All rights reserved.
+                  © 2025 Ryan Rehan. All rights reserved.
                 </p>
                 <p className="text-gray-400 text-sm">
-                  Built with React, TypeScript, and Tailwind CSS
+                  Built with React, and Tailwind CSS
                 </p>
               </div>
               <div className="flex items-center gap-4">

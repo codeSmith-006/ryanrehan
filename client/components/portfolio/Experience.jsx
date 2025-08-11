@@ -5,17 +5,16 @@ import { Calendar, MapPin, Building } from "lucide-react";
 const experiences = [
   {
     id: 1,
-    title: "Senior Full Stack Developer",
-    company: "TechCorp Inc.",
-    location: "San Francisco, CA",
-    period: "2022 - Present",
+    title: "Thumbnail Designer",
+    company: "Freelance",
+    location: "International",
+    period: "Aug 2024 - May 2025",
     description: [
-      "Led development of microservices architecture serving 1M+ users",
-      "Mentored team of 5 junior developers and established coding standards",
-      "Improved application performance by 40% through optimization",
-      "Implemented CI/CD pipelines reducing deployment time by 60%",
+      "Designed custom thumbnails for clients’ YouTube channels and Facebook pages",
+      "Collaborated closely with clients to capture their brand and style",
+      "Delivered visually appealing graphics that improved audience engagement",
     ],
-    icon: "💼",
+    icon: "🎨",
   },
   {
     id: 2,
