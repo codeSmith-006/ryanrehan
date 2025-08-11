@@ -13,6 +13,11 @@ export default function Index() {
   return (
     <>
       <Helmet>
+        <link
+          rel="icon"
+          type="image/png"
+          href="https://i.ibb.co.com/LXzzT9XJ/portfoliologo-removebg-preview.png"
+        ></link>
         <title>Ryan Rehan - Full Stack Developer</title>
         <meta
           name="description"

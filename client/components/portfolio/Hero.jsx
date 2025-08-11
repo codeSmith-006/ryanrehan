@@ -131,7 +131,6 @@ export function Hero() {
               </Button>
 
               {/* download resume hero button */}
-              <a href="/resume.pdf" download>
                 <Button
                   size="lg"
                   variant="outline"
@@ -146,7 +145,6 @@ export function Hero() {
                     <Download className="h-4 w-4 group-hover:animate-bounce" />
                   </motion.span>
                 </Button>
-              </a>
             </motion.div>
           </motion.div>
 

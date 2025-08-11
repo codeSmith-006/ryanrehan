@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import GlowingLogo from "./GlowingLogo";
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -42,11 +43,16 @@ export function Navigation() {
   }, []);
 
   const scrollToSection = (href) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    // First close the mobile menu
     setIsMobileMenuOpen(false);
+
+    // Wait a bit to let the menu close (adjust delay as needed)
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 300); // 300ms matches typical animation duration
   };
 
   return (
@@ -67,7 +73,9 @@ export function Navigation() {
               whileHover={{ scale: 1.05 }}
               className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
             >
-              BuildWithRyan
+              <div className="flex items-center">
+                <GlowingLogo></GlowingLogo>
+              </div>
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -99,7 +107,7 @@ export function Navigation() {
                   )}
                 </motion.button>
               ))}
-              <ThemeToggle />
+              {/* <ThemeToggle /> */}
 
               {/* resume download button */}
               <motion.div
@@ -107,11 +115,7 @@ export function Navigation() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <a
-                  href="/resume.pdf"
-                  download
-                  className="inline-flex items-center gap-1 px-3 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
-                >
+                <a className="inline-flex items-center gap-1 px-3 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl text-sm">
                   <svg
                     className="w-4 h-4"
                     fill="none"
@@ -132,7 +136,7 @@ export function Navigation() {
 
             {/* Mobile Menu Toggle */}
             <div className="md:hidden flex items-center space-x-2">
-              <ThemeToggle />
+              {/* <ThemeToggle /> */}
               <Button
                 variant="ghost"
                 size="icon"
@@ -140,9 +144,9 @@ export function Navigation() {
                 className="h-9 w-9"
               >
                 {isMobileMenuOpen ? (
-                  <X className="h-5 w-5" />
+                  <X className="h-10 w-10" />
                 ) : (
-                  <Menu className="h-5 w-5" />
+                  <Menu className="h-10 w-10" />
                 )}
               </Button>
             </div>
@@ -182,26 +186,20 @@ export function Navigation() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <a
-                    href="/resume.pdf"
-                    download
-                    className="inline-flex items-center gap-1 px-3 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
                   >
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                      />
-                    </svg>
-                    Download Resume
-                  </a>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
+                  </svg>
+                  Download Resume
                 </motion.div>
               </div>
             </motion.div>
