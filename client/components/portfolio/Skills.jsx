@@ -26,16 +26,6 @@ import netlify from "../../../assets/netlify.png";
 const skillCategories = {
   Frontend: [
     {
-      name: "React",
-      icon: <img src={react} alt="React Icon" className="w-8 h-8" />,
-      color: "from-blue-400 to-blue-600",
-    },
-    {
-      name: "JavaScript (ES6+)",
-      icon: <img src={js} alt="JavaScript Icon" className="w-8 h-8" />,
-      color: "from-yellow-400 to-yellow-600",
-    },
-    {
       name: "HTML5",
       icon: <img src={html} alt="HTML Icon" className="w-8 h-8" />,
       color: "from-orange-400 to-orange-600",
@@ -50,6 +40,18 @@ const skillCategories = {
       icon: <img src={tailwind} alt="Tailwind Icon" className="w-8 h-8" />,
       color: "from-cyan-400 to-cyan-600",
     },
+    {
+      name: "JavaScript (ES6+)",
+      icon: <img src={js} alt="JavaScript Icon" className="w-8 h-8" />,
+      color: "from-yellow-400 to-yellow-600",
+    },
+
+    {
+      name: "React",
+      icon: <img src={react} alt="React Icon" className="w-8 h-8" />,
+      color: "from-blue-400 to-blue-600",
+    },
+
     {
       name: "Responsive Design",
       icon: (
