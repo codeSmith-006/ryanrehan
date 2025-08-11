@@ -4,12 +4,14 @@ import { useInView } from "react-intersection-observer";
 import {
   ExternalLink,
   Github,
-  X,
+  ArrowLeft,
   Code,
   Globe,
   Zap,
   TrendingUp,
 } from "lucide-react";
+import { NavLink, useNavigate } from "react-router-dom";
+import ProjectDetails from "./ProjectDetails";
 
 const projects = [
   {
@@ -161,172 +163,16 @@ const projects = [
   },
 ];
 
-const ProjectModal = ({ project, isOpen, onClose }) => {
-  if (!project) return null;
+// ProjectDetails = ({ project, onBack }) => {
 
-  return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
-          onClick={onClose}
-        >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0, y: 50 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.8, opacity: 0, y: 50 }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              onClick={onClose}
-              className="absolute top-4 right-4 z-10 p-2 bg-white/90 dark:bg-gray-800/90 rounded-full hover:bg-white dark:hover:bg-gray-800 transition-colors"
-            >
-              <X className="h-5 w-5 text-gray-700 dark:text-gray-300" />
-            </button>
+// };
 
-            {/* Modal Content */}
-            <div className="overflow-y-auto max-h-[90vh]">
-              {/* Header Image */}
-              <div className="relative h-64 md:h-80 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="absolute bottom-6 left-6 text-white">
-                  <h2 className="text-3xl md:text-4xl font-bold mb-2">
-                    {project.title}
-                  </h2>
-                </div>
-              </div>
+const ProjectCard = ({ project, onViewDetails, index }) => {
+  const navigate = useNavigate();
 
-              {/* Content */}
-              <div className="p-6 md:p-8">
-                {/* Description */}
-                <div className="mb-8">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 flex items-center">
-                    <Code className="h-5 w-5 mr-2 text-blue-600" />
-                    Project Overview
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Tech Stack */}
-                <div className="mb-8">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
-                    <Zap className="h-5 w-5 mr-2 text-purple-600" />
-                    Technology Stack
-                  </h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                    {project.tech.map((tech, index) => (
-                      <motion.div
-                        key={tech}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        className="px-3 py-2 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg text-center border border-blue-200 dark:border-blue-800"
-                      >
-                        <span className="text-sm font-medium text-blue-700 dark:text-blue-300">
-                          {tech}
-                        </span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Links */}
-                <div className="mb-8">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
-                    <Globe className="h-5 w-5 mr-2 text-green-600" />
-                    Project Links
-                  </h3>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <motion.a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all"
-                    >
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Live Demo
-                    </motion.a>
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="flex items-center justify-center px-6 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all"
-                    >
-                      <Github className="h-4 w-4 mr-2" />
-                      Source Code
-                    </motion.a>
-                  </div>
-                </div>
-
-                {/* Challenges */}
-                <div className="mb-8">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-                    🚀 Challenges Faced
-                  </h3>
-                  <ul className="space-y-2">
-                    {project.challenges.map((challenge, index) => (
-                      <motion.li
-                        key={index}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        className="flex items-start text-gray-600 dark:text-gray-300"
-                      >
-                        <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0" />
-                        {challenge}
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Future Improvements */}
-                <div className="mb-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
-                    <TrendingUp className="h-5 w-5 mr-2 text-green-600" />
-                    Future Improvements
-                  </h3>
-                  <ul className="space-y-2">
-                    {project.improvements.map((improvement, index) => (
-                      <motion.li
-                        key={index}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 + 0.3 }}
-                        className="flex items-start text-gray-600 dark:text-gray-300"
-                      >
-                        <span className="inline-block w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0" />
-                        {improvement}
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-};
-
-const ProjectCard = ({ project, onViewMore, index }) => {
+  const handleViewDetails = () => {
+    navigate(`/project-details`, { state: { project } });
+  };
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -390,9 +236,10 @@ const ProjectCard = ({ project, onViewMore, index }) => {
           )}
         </div>
 
-        {/* View More Button */}
+        {/* View Details Button */}
         <motion.button
-          onClick={() => onViewMore(project)}
+          // onClick={() => onViewDetails(project)}
+          onClick={handleViewDetails}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className="relative z-10 w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer"
@@ -414,131 +261,147 @@ const ProjectCard = ({ project, onViewMore, index }) => {
   );
 };
 
-export function Projects() {
+const ProjectsGrid = ({ projects, onViewDetails }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleViewMore = (project) => {
-    setSelectedProject(project);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setTimeout(() => setSelectedProject(null), 300);
-  };
-
   const featuredProjects = projects.filter((project) => project.featured);
   const otherProjects = projects.filter((project) => !project.featured);
 
   return (
-    <>
-      <section
-        id="projects"
-        className="py-12 md:py-20 bg-gray-50 dark:bg-gray-800/50"
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Header */}
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 30 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-12 md:mb-16"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12 md:mb-16"
-          >
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4"
-            >
-              Featured{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Projects
-              </span>
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed"
-            >
-              Here are some of my recent projects that showcase my skills and
-              passion for creating innovative solutions.
-            </motion.p>
-          </motion.div>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+        >
+          Featured{" "}
+          <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Projects
+          </span>
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed"
+        >
+          Here are some of my recent projects that showcase my skills and
+          passion for creating innovative solutions.
+        </motion.p>
+      </motion.div>
 
-          {/* Featured Projects */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 md:mb-16">
-            {featuredProjects.map((project, index) => (
+      {/* Featured Projects */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 md:mb-16">
+        {featuredProjects.map((project, index) => (
+          <ProjectCard
+            key={project.id}
+            project={project}
+            onViewDetails={onViewDetails}
+            index={index}
+          />
+        ))}
+      </div>
+
+      {/* Other Projects */}
+      {otherProjects.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+            More Projects
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {otherProjects.map((project, index) => (
               <ProjectCard
                 key={project.id}
                 project={project}
-                onViewMore={handleViewMore}
-                index={index}
+                onViewDetails={onViewDetails}
+                index={index + featuredProjects.length}
               />
             ))}
           </div>
+        </motion.div>
+      )}
 
-          {/* Other Projects */}
-          {otherProjects.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-                More Projects
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                {otherProjects.map((project, index) => (
-                  <ProjectCard
-                    key={project.id}
-                    project={project}
-                    onViewMore={handleViewMore}
-                    index={index + featuredProjects.length}
-                  />
-                ))}
-              </div>
-            </motion.div>
-          )}
-
-          {/* View All Projects Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-center mt-12 md:mt-16"
+      {/* View All Projects Button */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+        className="text-center mt-12 md:mt-16"
+      >
+        <motion.button
+          whileHover={{ scale: 1.05, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-flex items-center px-8 py-4 text-lg font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-all shadow-lg hover:shadow-xl group"
+        >
+          View All Projects
+          <motion.span
+            className="ml-2"
+            animate={{ x: [0, 5, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
           >
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-8 py-4 text-lg font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-all shadow-lg hover:shadow-xl group"
-            >
-              View All Projects
-              <motion.span
-                className="ml-2"
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                →
-              </motion.span>
-            </motion.button>
-          </motion.div>
-        </div>
-      </section>
+            →
+          </motion.span>
+        </motion.button>
+      </motion.div>
+    </div>
+  );
+};
 
-      {/* Project Modal */}
-      <ProjectModal
-        project={selectedProject}
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-      />
-    </>
+export function Projects() {
+  const [selectedProject, setSelectedProject] = useState(null);
+  console.log("selected post: ", selectedProject);
+
+  const handleViewDetails = (project) => {
+    setSelectedProject(project);
+  };
+
+  const handleBackToProjects = () => {
+    setSelectedProject(null);
+  };
+
+  return (
+    <section
+      id="projects"
+      className="py-12 md:py-20 bg-gray-50 dark:bg-gray-800/50"
+    >
+      <AnimatePresence mode="wait">
+        {selectedProject ? (
+          <ProjectDetails
+            key="project-details"
+            project={selectedProject}
+            onBack={handleBackToProjects}
+          />
+        ) : (
+          <motion.div
+            key="projects-grid"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ProjectsGrid
+              projects={projects}
+              onViewDetails={handleViewDetails}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
   );
 }

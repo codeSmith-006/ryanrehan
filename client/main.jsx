@@ -17,6 +17,7 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 // Pages
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import ProjectDetails from "./components/portfolio/ProjectDetails";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,10 @@ const App = () => {
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<Index />} />
+                <Route
+                  path="/project-details"
+                  element={<ProjectDetails></ProjectDetails>}
+                />
                 {/* Catch-all route for 404 */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
